@@ -1,70 +1,244 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# HomeHunt - Real Estate Listing & Finder Platform
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-Frontend-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-UI-38B2AC)
+![React Router](https://img.shields.io/badge/React%20Router-Routing-red)
+![Redux Toolkit](https://img.shields.io/badge/Redux-State-purple)
+![Firebase](https://img.shields.io/badge/Firebase-Backend-orange)
+![Leaflet](https://img.shields.io/badge/Leaflet-Maps-green)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-In the project directory, you can run:
+![Repo Size](https://img.shields.io/github/repo-size/yanamak89/homehunt)
+![Last Commit](https://img.shields.io/github/last-commit/yanamak89/homehunt)
+![Stars](https://img.shields.io/github/stars/yanamak89/homehunt)
+![Issues](https://img.shields.io/github/issues/yanamak89/homehunt)
+![Contributors](https://img.shields.io/github/contributors/yanamak89/homehunt)
+![Pull Requests](https://img.shields.io/github/issues-pr/yanamak89/homehunt)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+HomeHunt is a modern real estate discovery platform built with React.  
+The application allows users to explore, search, and bookmark properties while providing an intuitive UI similar to platforms like Zillow or 99acres.
 
-### `npm test`
+The goal of this project is to demonstrate a scalable frontend architecture, real-world filtering systems, and a production-style React application structure.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users can:
 
-### `npm run build`
+- Browse real estate listings
+- Search properties by location, price, and property type
+- View detailed property pages
+- Explore properties on a map
+- Save or bookmark listings
+- Contact property agents or owners
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Admins can manage listings through an admin dashboard.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+### Frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React.js
+- React Hooks
+- React Router
+- Tailwind CSS / ShadCN UI
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Forms & Validation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- React Hook Form
+- Yup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### State Management
 
-## Learn More
+- Redux Toolkit
+- Context API
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Maps
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Leaflet.js
+- Google Maps API (optional)
 
-### Code Splitting
+### Image Handling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Firebase Storage
+- Cloudinary
 
-### Analyzing the Bundle Size
+### Backend (Optional)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Firebase Firestore
+- Express.js
+- MongoDB
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Core Features
 
-### Advanced Configuration
+### User Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Home page with featured property listings
+- Advanced search with filters
+- Property details page with gallery and map location
+- Bookmark properties
+- Contact form for property inquiries
 
-### Deployment
+### Admin Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Admin dashboard
+- Add new listings
+- Edit existing properties
+- Delete listings
+- Upload property images
+- Track property activity
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Architecture Diagram
+
+```mermaid
+flowchart TD
+
+User --> Frontend[React Frontend]
+
+Frontend --> Router[React Router]
+
+Router --> HomePage
+Router --> PropertyDetails
+Router --> Bookmarks
+Router --> AdminDashboard
+
+HomePage --> ListingsService
+PropertyDetails --> PropertyService
+
+ListingsService --> API
+PropertyService --> API
+
+API --> Database[(Database)]
+API --> ImageStorage[(Cloud Storage)]
+
+Frontend --> MapsAPI[Leaflet / Google Maps]
+```
+
+---
+
+## Project Structure
+
+```
+src
+ ├── components
+ │   ├── PropertyCard
+ │   ├── PropertyGallery
+ │   ├── MapView
+ │   └── SearchBar
+ │
+ ├── pages
+ │   ├── Home
+ │   ├── PropertyDetails
+ │   ├── Bookmarks
+ │   ├── Login
+ │   └── AdminDashboard
+ │
+ ├── services
+ │   ├── propertyService.js
+ │   └── authService.js
+ │
+ ├── store
+ │   ├── reduxStore.js
+ │   └── slices
+ │
+ ├── hooks
+ │   ├── useAuth
+ │   └── useListings
+ │
+ └── App.js
+```
+
+---
+
+## Product Roadmap
+
+### Phase 1 - MVP
+
+- Property listing page
+- Property details page
+- Search functionality
+- Filters (price, location, property type)
+- Bookmark properties
+- Contact form
+
+### Phase 2 - Advanced Features
+
+- Map-based search
+- Saved searches
+- Admin dashboard
+- Role-based authentication
+
+### Phase 3 - Platform Features
+
+- Real-time chat between buyers and agents
+- Property visit scheduling
+- Mortgage calculator
+- Analytics dashboard
+
+### Phase 4 - SaaS Expansion
+
+- Multi-agent accounts
+- Subscription model
+- CRM integration
+- Lead management dashboard
+
+---
+
+## Installation
+
+Clone the repository
+
+```
+git clone https://github.com/yanamak89/homehunt.git
+```
+
+Install dependencies
+
+```
+npm install
+```
+
+Run development server
+
+```
+npm start
+```
+
+Open in browser
+
+```
+http://localhost:3000
+```
+
+---
+
+## Future Improvements
+
+- Progressive Web App (PWA) support
+- Push notifications for saved searches
+- Geo-based property recommendations
+- Neighborhood analytics (schools, transport, safety)
+- Property comparison tool
+
+---
+
+## Author
+
+**Yana Makogon**
+
+GitHub  
+https://github.com/yanamak89
+
+LinkedIn  
+https://www.linkedin.com/in/yana-mac/
+
+
