@@ -11,7 +11,6 @@
 
 ![Repo Size](https://img.shields.io/github/repo-size/yanamak89/realtor-platform-react)
 ![Last Commit](https://img.shields.io/github/last-commit/yanamak89/realtor-platform-react)
-![Stars](https://img.shields.io/github/stars/yanamak89/realtor-platform-react)
 ![Issues](https://img.shields.io/github/issues/yanamak89/realtor-platform-react)
 ![Contributors](https://img.shields.io/github/contributors/yanamak89/realtor-platform-react)
 ![Pull Requests](https://img.shields.io/github/issues-pr/yanamak89/realtor-platform-react)
