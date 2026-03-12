@@ -8,7 +8,6 @@
 ![Redux Toolkit](https://img.shields.io/badge/Redux-State-purple)
 ![Firebase](https://img.shields.io/badge/Firebase-Backend-orange)
 ![Leaflet](https://img.shields.io/badge/Leaflet-Maps-green)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ![Repo Size](https://img.shields.io/github/repo-size/yanamak89/realtor-platform-react)
 ![Last Commit](https://img.shields.io/github/last-commit/yanamak89/realtor-platform-react)
