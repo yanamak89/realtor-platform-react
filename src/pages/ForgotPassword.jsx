@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
 import OAuth from "../component/OAuth";
-
+import { toast } from "react-toastify";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 
 export default function ForgotPassword() {
@@ -10,6 +11,25 @@ export default function ForgotPassword() {
 
   function onChange(e) {
     setEmail(e.target.value);
+  }
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    
+    try {
+      const auth = getAuth();
+      await sendPasswordResetEmail(auth, email);
+      toast.success("If an account with this email exists, a reset link has been sent.")
+    } catch (error) {
+      console.log(error);
+      if (error.code === "auth/invalid-email") {
+        toast.error("Please enter a valid email.");
+      } else if (error.code === "auth/too-many-requests") {
+        toast.error("Too many attempts. Try again later.");
+      } else {
+        toast.error("Something went wrong. Try again.");
+      }
+    }
   }
   return (
     <section>
@@ -26,7 +46,7 @@ export default function ForgotPassword() {
         </div>
 
         <div className="w-full md:w-[57%] lg:w-[40%]">
-          <form>
+          <form onSubmit={onSubmit}>
             <input
               type="email"
               id="email"
